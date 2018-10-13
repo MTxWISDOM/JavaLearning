@@ -1,0 +1,81 @@
+import java.util.ArrayList;
+import java.util.HashSet;
+
+class Value{
+    private int x;
+
+    public void setX(int x){
+        this.x = x;
+    }
+    public int get(){
+        return x;
+    }
+
+    public String toString(){ //令System.out.println直接输出x
+        return "" + x;
+    }
+}
+public class Objectcontainer {//顺序容器的用法
+    private ArrayList<String> a = new ArrayList<>(); //顺序容器ArrayList<>
+
+    public void add(String s){
+        a.add(s); //add()方法
+    }
+
+    public int size(){
+        return a.size(); //size()方法
+    }
+
+    public void remove(int index){
+        a.remove(index); //remove()方法
+    }
+
+    public static void main(String a[]){
+        Objectcontainer o = new Objectcontainer(); //Objectcontainer对象
+        o.add("hello");
+        o.add("world!!");
+        int size = o.a.size();
+        String[] n = new String[size];
+        o.a.toArray(n); //ArrayList容器转化为String对象数组
+        for( String c : n){ //for-each循环，输出String对象数组所控制的对象的内容
+            System.out.println(c);
+        }
+        for( String q : o.a){
+            System.out.println(q);
+        }
+        o.remove(0);
+        for( String q : o.a){
+            System.out.println(q);
+        }
+
+        Value[] V = new Value[10]; //V是管理Value对象的一组管理者
+        Value m = new Value();
+        System.out.println(m); //0
+        for( int i = 0; i < V.length; i++){
+            V[i] = new Value(); //每个V[i]所装的都是Value的对象
+            V[i].setX(i);
+        }
+        for( Value v : V){
+            System.out.print(v.get());
+        }
+        System.out.println();
+
+        ArrayList<String> p = new ArrayList<>(); //元素会重复
+        p.add("first");
+        p.add("second");
+        p.add("first");
+        System.out.println(p); //会输出用[]括住所有元素，表示这是一个对象数组里的元素
+        HashSet<String> q = new HashSet<>(); //Hashset集合，元素不重复
+        q.add("first");
+        q.add("second");
+        q.add("first");
+        System.out.println(q);
+        for( String u : p){
+            System.out.println(u);
+        }
+        System.out.println();
+        for( String y : q){
+            System.out.println(y);
+        }
+    }
+}
