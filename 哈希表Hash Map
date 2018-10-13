@@ -1,5 +1,3 @@
-package algorithm.src.LearnJava.HashMAP;
-
 import java.util.HashMap;
 import java.util.Scanner;
 
